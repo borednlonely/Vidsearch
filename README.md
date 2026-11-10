@@ -4,9 +4,9 @@ VidSearch is a local video analysis that uses a Vision Language Model to extract
 
 ## How it works
 
-1. **Video Analysis** - Qwen2.5VL 3B - processes your video and outputs timestamped JSON segments describing actions, body language, emotions, visuals and more
-2. **Vector Storage** ChromaDB - Each segment gets flattened into text and embedded into ChromaDB for semantic search
-3. **QnA** (via Ollama) - Ask questions in plain english. ChromaDB finds the most relevant segments using cosine similarity, then passes them as context to a second LLM which answers based on the stored data
+1. **Video Analysis** uses Qwen2.5VL 3B - processes your video and outputs timestamped JSON segments describing actions, body language, emotions, visuals and more
+2. **Vector Storage** uses ChromaDB - Each segment gets flattened into text and embedded into ChromaDB for semantic search
+3. **QnA** via Ollama - Ask questions in plain english. ChromaDB finds the most relevant segments using cosine similarity, then passes them as context to a second LLM which answers based on the stored data
 
 The vision model runs only once per video. After that, you can ask as many questions as you want against the stored data. This also helps reduce hallucinations since the Q&A model only has access to what was actually extracted from the video.
 
